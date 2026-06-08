@@ -65,3 +65,15 @@ def test_delete_lista_vacia():
     ll = LinkedList()
 
     assert ll.delete(1) is False
+
+def test_delete_ultimo_elemento():
+    ll = LinkedList()
+
+    ll.head = Node(1)
+    ll.head.next = Node(2)
+    ll.head.next.next = Node(3)
+
+    resultado = ll.delete(3)
+
+    assert resultado is True
+    assert str(ll) == "1 -> 2"
