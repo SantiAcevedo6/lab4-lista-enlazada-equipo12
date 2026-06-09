@@ -24,3 +24,28 @@ def test_lista_vacia_len():
 def test_node_repr():
     n = Node(42)
     assert repr(n) == "Node(42)"
+
+# ------------------------------------------------------------------ #
+# Pruebas Equipo A - append()                                        #
+# Autor: Samuel Contreras                                                   #
+# ------------------------------------------------------------------ #
+
+def test_append_un_elemento():
+    ll = LinkedList()
+
+    ll.append(10)
+
+    assert ll.head is not None
+    assert ll.head.data == 10
+    assert len(ll) == 1
+
+
+def test_append_varios_elementos():
+    ll = LinkedList()
+
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+
+    assert str(ll) == "1 -> 2 -> 3"
+    assert len(ll) == 3
