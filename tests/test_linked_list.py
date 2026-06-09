@@ -26,6 +26,58 @@ def test_node_repr():
     assert repr(n) == "Node(42)"
 
 # ------------------------------------------------------------------ #
+# Pruebas Equipo B — delete                                          #
+# ------------------------------------------------------------------ #
+def test_delete_elemento_existente():
+    ll = LinkedList()
+
+    ll.head = Node(1)
+    ll.head.next = Node(2)
+    ll.head.next.next = Node(3)
+
+    resultado = ll.delete(2)
+
+    assert resultado is True
+    assert str(ll) == "1 -> 3"
+
+def test_delete_head():
+    ll = LinkedList()
+
+    ll.head = Node(10)
+    ll.head.next = Node(20)
+
+    resultado = ll.delete(10)
+
+    assert resultado is True
+    assert ll.head.data == 20
+
+def test_delete_elemento_inexistente():
+    ll = LinkedList()
+
+    ll.head = Node(5)
+
+    resultado = ll.delete(99)
+
+    assert resultado is False
+    assert len(ll) == 1
+
+def test_delete_lista_vacia():
+    ll = LinkedList()
+
+    assert ll.delete(1) is False
+
+def test_delete_ultimo_elemento():
+    ll = LinkedList()
+
+    ll.head = Node(1)
+    ll.head.next = Node(2)
+    ll.head.next.next = Node(3)
+
+    resultado = ll.delete(3)
+
+    assert resultado is True
+    assert str(ll) == "1 -> 2"
+
 # Pruebas Equipo A - append()                                        #
 # Autor: Samuel Contreras                                                   #
 # ------------------------------------------------------------------ #
